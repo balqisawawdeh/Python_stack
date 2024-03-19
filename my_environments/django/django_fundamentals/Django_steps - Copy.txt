@@ -1,0 +1,47 @@
+Django
+
+1. create virtual environment, activate it, then install Django inside it
+	python -m venv djangoPy3Env
+	call djangoPy3Env\Scripts\activate 
+	pip install Django
+
+2. Create your project in some directories, then go to the project folder, as follows:
+	django-admin startproject your_project_name_here
+	cd your_project directory
+
+3. Run the server using the following command then open it in the browser: 
+	python manage.py runserver
+	http://127.0.0.1:8000/
+
+4. For every app we want to add to our project, we'll do the following:
+	your_project_name_here> python manage.py startapp your_app_name_here
+
+5. for file settings.py, add the App to the  INSTALLED_APPS dictionary as follows:
+	INSTALLED_APPS  = [       'your_app_name_here', 
+
+6. in the project  urls.py, add URL of your app
+	from django.urls import path, include
+	urlpatterns = [ 	    path('', include('your_app_name_here.urls'))]
+
+7. in the App, create file called urls.py, add the URL
+	from django.urls import path     
+	from . import views
+	urlpatterns = [ path('', views.index),   ]
+
+then in our app's views.py file, put a function called index 
+	from django.shortcuts import render, HttpResponse
+	def index(request):
+    		return HttpResponse("this is the equivalent of @app.route('/')!")
+
+8. python manage.py runserver
+
+
+Notes: 
+
+1. Static Files:        {% load static %}
+2. Form Submission:   {% csrf_token %}
+
+
+
+
+
