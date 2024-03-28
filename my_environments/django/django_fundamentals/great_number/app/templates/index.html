@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <header>
+    <h1>Guess the Number!</h1>
+    <p class="between">(Between 1 and 100)</p>
+    <div class="number">?</div>
+  </header>
+  <main>
+    <section class="left">
+      <form method="post">
+        {% csrf_token %}
+        <input type="number" class="guess" name="guess" min="1" max="100" required>
+        <br><br>
+        <button class="btn check" type="submit">Submit</button>
+      </form>
+    </section>
+    <section class="right">
+      {% if message %}
+        <p class="message">{{ message }}</p>
+      {% endif %}
+    </section>
+  </main>
+{% endblock %}

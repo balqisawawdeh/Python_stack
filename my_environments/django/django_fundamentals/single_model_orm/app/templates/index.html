@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+</head>
+<body>
+    <div class="container">
+        <h1>All the Users</h1>
+        <div>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <div>
+            <h1>Add User</h1>
+            <form class="form" action='/create' method='post'>
+                <div class="user">
+                    <label>First Name</label>
+                    <input type="text" name="text">
+                    <label>Last Name</label>
+                    <input type="text" name="text">
+                </div>
+                <div class="user">
+                    <label>Email</label>
+                    <input type="text" name="text">
+                    <label>Age</label>
+                    <input type="text" name="text">
+                </div> 
+                <button role="button" type="create" name="" value="">Add</button>
+            </form>
+            
+        </div>
+    </div>
+</body>
+</html>

@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Counter</title>
+    {% load static%}
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
 </head>
 <body>
-    <p>Counter</p>
-    <p> {{  request.session.counter }} </p>
+    <h1> Counter</h1>
+    {%csrf_token%}
+    <h1>{{request.session.counter}}</h1>
+    <div class="button">
+        <a href="/addtwo"><button class="button-29" role="button" type="submit" name="" value="+2">+2</button></a>
+        <a href="/reset"><button class="button-29" role="button" type="submit" name="" value="+2">reset</button></a>
+    </div>
 </body>
 </html>

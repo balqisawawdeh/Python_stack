@@ -25,28 +25,28 @@ def process():
         ran=random.randint(10, 20)
         number+= ran
         session['activities'].append(f"Earned {number} gold from the farm! ({date_time})")
-        for i in range(len(session['activities'])-1, -1, -1):
+        for i in range(len(session['activities'])):
             session['message'] += session['activities'][i]
     
     elif request.form['building'] == 'cave':
         ran=random.randint(10, 20)
         number+= ran
         session['activities'].append(f"Earned {number} gold from the farm! ({date_time})")
-        for i in range(len(session['activities'])-1, -1, -1):
+        for i in range(len(session['activities'])):
             session['message'] += session['activities'][i]
     
     elif request.form['building'] == 'house':
         ran=random.randint(10, 20)
         number+= ran
         session['activities'].append(f"Earned {number} gold from the farm! ({date_time})")
-        for i in range(len(session['activities'])-1, -1, -1):
+        for i in range(len(session['activities'])):
             session['message'] += session['activities'][i]
     
     elif request.form['building'] == 'Cafeteria':
         ran=random.randint(10, 20)
         number+= ran
         session['activities'].append(f"Earned {number} gold from the farm! ({date_time})")
-        for i in range(len(session['activities'])-1, -1, -1):
+        for i in range(len(session['activities'])):
             session['message'] += session['activities'][i]
     
     return redirect('/')
