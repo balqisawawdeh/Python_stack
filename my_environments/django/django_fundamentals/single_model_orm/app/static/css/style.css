@@ -10,17 +10,17 @@
     justify-content: left;
 }
 h1,label,input{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Georgia, 'Times New Roman', Times, serif;
     margin: 10px;
 }
 table {
     border-collapse: collapse;
     width: 100%;
+    Overflow-x:scroll;
 }
-  
 th, td {
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     padding: 8px;
 }
   

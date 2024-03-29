@@ -9,36 +9,47 @@
 </head>
 <body>
     <div class="container">
-        <h1>All the Users</h1>
+        <h1>All the users</h1>
         <div>
             <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Age</th>
-                </tr>
+                <tbody>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                    </tr>
+                    {%for user in all_the_users%}
+                    <tr>
+                        <th>{{user.id}}</th>
+                        <th>{{user.f_name}} {{user.l_name}}</th>
+                        <th>{{user.email_address}}</th>
+                        <th>{{user.age}}</th>
+                    </tr>
+                    {%endfor%}
+            </tbody>
             </table>
         </div>
         <hr>
         <div>
             <h1>Add User</h1>
-            <form class="form" action='/create' method='post'>
+            <form class="form" action="/create" method='post'>
+                {%csrf_token%}
                 <div class="user">
                     <label>First Name</label>
-                    <input type="text" name="text">
+                    <input type="text" name="text" value="{{user.f_name}}">
                     <label>Last Name</label>
-                    <input type="text" name="text">
+                    <input type="text" name="text" value="">
                 </div>
                 <div class="user">
                     <label>Email</label>
-                    <input type="text" name="text">
+                    <input type="text" name="text" value="">
                     <label>Age</label>
-                    <input type="text" name="text">
+                    <input type="text" name="text" value="">
                 </div> 
-                <button role="button" type="create" name="" value="">Add</button>
+                <a href="/create"><button role="button" type="submit" name="" value="">Add</button></a>
+                <a href="/remove"><button role="button" type="submit" name="" value="">remove</button></a>
             </form>
-            
         </div>
     </div>
 </body>

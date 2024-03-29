@@ -1,0 +1,47 @@
+.container{
+    width: 100%;
+    display: inline-block;
+    padding: 30px;
+}
+.Main{
+    display: block;
+    width: 100%;
+}
+.form{
+    width: 19%;
+    border: 2px;
+    border-style: solid;
+    border-color: gray;
+    border-radius: 10px;
+    margin: 20px 20px 20px 0px;
+    display: inline-block;
+    justify-content: space-between;
+    text-align: center;
+    padding: 20px;
+}
+
+h1,h2,p{
+    width: 100%;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    display:inline;
+    justify-content:center;
+}
+label{
+    display: inline-flex;
+    justify-content:flex-start;
+}
+input{
+    display:inline;
+    justify-content:center;
+}
+.activities{
+    width: 94%;
+    height: 200px;
+}
+.green{
+    color:green;
+}
+
+.red{
+    color:red;
+}

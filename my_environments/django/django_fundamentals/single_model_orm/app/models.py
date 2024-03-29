@@ -1,6 +1,6 @@
 from django.db import models
     
-class User(models.Model):
+class users(models.Model):
     f_name = models.CharField(max_length=45)
     l_name = models.CharField(max_length=45)
     email_address = models.EmailField()
@@ -9,8 +9,13 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 def create_user():
-    new_user=User.objects.create(f_name="Chidi",l_name="Anagonye",email_address="chidi@angonye.com",age=32)
+    users.objects.create(f_name="name",l_name="Anagonye",email_address="chidi@angonye.com",age=32)
 
 def get_all():
-    all_users = User.objects.all()
+    return users.objects.all()
+
+def remove_user(id):
+    user= users.objects.last()
+    user.delete()
+    
     
