@@ -28,7 +28,7 @@ def process(request):
             earn = random.randint(-50, 50)
             request.session['gold'] += earn
             if request.session['gold']>0:
-                request.session['activities'].append(f'Entered a casino and lost {earn} golds... ouch.. ({datetime.datetime.now()})')
+                request.session['activities'].append(f'Entered a casino and win {earn} golds...({datetime.datetime.now()})')
             else:
                 request.session['activities'].append(f'Entered a casino and lost {earn} golds... ouch.. ({datetime.datetime.now()})')
         return redirect('/')
