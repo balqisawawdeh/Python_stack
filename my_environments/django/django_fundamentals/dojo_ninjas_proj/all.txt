@@ -1,0 +1,108 @@
+Microsoft Windows [Version 10.0.22631.3296]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals>call envo2024\Scripts\activate
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals>cd dojo_ninjas_proj
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\dojo_ninjas_proj>python manage.py shell
+Python 3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.193764 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+ModuleNotFoundError: No module named 'app'
+>>> from dojo_ninjas_app.models import ninjas
+>>> from dojo_ninjas_app.models import dojos
+>>> dojos.objects.create(name='Balqees',city='Hebron',state='Palestine')
+<dojos: dojos object (1)>
+>>> dojos.objects.create(name='Arwa',city='Hebron',state='Palestine')
+<dojos: dojos object (2)>
+>>> dojos.objects.create(name='Anees',city='Hebron',state='Palestine')
+<dojos: dojos object (3)>
+>>> c=dojos.objects.get(id=1)
+>>> c.delete()
+(1, {'dojo_ninjas_app.dojos': 1})
+>>> c=dojos.objects.get(id=2)
+>>> c.delete()
+(1, {'dojo_ninjas_app.dojos': 1})
+>>> c=dojos.objects.get(id=3)
+>>> c.delete()
+(1, {'dojo_ninjas_app.dojos': 1})
+>>> dojos.objects.create(name='Balqees',city='Hebron',state='Palestine')
+<dojos: dojos object (4)>
+>>> dojos.objects.create(name='Arwa',city='Hebron',state='Palestine')
+<dojos: dojos object (5)>
+>>> dojos.objects.create(name='Anees',city='Hebron',state='Palestine')
+<dojos: dojos object (6)>
+>>> dojos.objects.all()
+<QuerySet [<dojos: dojos object (4)>, <dojos: dojos object (5)>, <dojos: dojos object (6)>]>
+>>> c=dojos.objects.get(id=4)
+>>> new_ninja=ninjas.objects.create(f_name='ninja1',l_name='ninjas',dojo=dojos.objects.get(id=4))
+>>> new_ninja=ninjas.objects.create(f_name='ninja2',l_name='ninjas',dojo
+=dojos.objects.get(id=4))
+>>> new_ninja=ninjas.objects.create(f_name='ninja3',l_name='ninjas',dojo
+=dojos.objects.get(id=4))
+>>> new_ninja=ninjas.objects.create(f_name='ninja3',l_name='ninjas',dojo=dojos.objects.get(id=5))
+>>> new_ninja=ninjas.objects.create(f_name='ninja2',l_name='ninjas',dojo
+=dojos.objects.get(id=5))
+>>> new_ninja=ninjas.objects.create(f_name='ninja1',l_name='ninjas',dojo
+=dojos.objects.get(id=5))
+>>> new_ninja=ninjas.objects.create(f_name='ninja1',l_name='ninjas',dojo
+=dojos.objects.get(id=6))
+>>> new_ninja=ninjas.objects.create(f_name='ninja2',l_name='ninjas',dojo
+=dojos.objects.get(id=6))
+>>> new_ninja=ninjas.objects.create(f_name='ninja3',l_name='ninjas',dojo
+=dojos.objects.get(id=6))
+>>> c=dojos.objects.get(id=4)
+>>> ninjas.objects.filter(dojo=c)
+<QuerySet [<ninjas: ninjas object (1)>, <ninjas: ninjas object (2)>, <ninjas: ninjas object (3)>]>
+>>> dojos.objects.get(id=4)
+<dojos: dojos object (4)>
+>>> ninjas.objects.filter(dojo=dojos.objects.get(id=4))
+<QuerySet [<ninjas: ninjas object (1)>, <ninjas: ninjas object (2)>, <ninjas: ninjas object (3)>]>
+>>> ninjas.objects.filter(dojo=dojos.objects.first())
+<QuerySet [<ninjas: ninjas object (1)>, <ninjas: ninjas object (2)>, <ninjas: ninjas object (3)>]>
+>>> ninjas.objects.filter(dojo=dojos.objects.last())
+<QuerySet [<ninjas: ninjas object (7)>, <ninjas: ninjas object (8)>, <ninjas: ninjas object (9)>]>
+>>> ninjas.objects.last()
+<ninjas: ninjas object (9)>
+>>> from django.db.models import Model
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\dojo_ninjas_proj>python manage.py makemigrations
+It is impossible to add a non-nullable field 'desc' to dojos without specifying a default. This is because the database needs something to populate existing rows.
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit and manually define a default value in models.py.
+Select an option: 1
+Please enter the default value as valid Python.
+The datetime and django.utils.timezone modules are available, so it is possible to provide e.g. timezone.now as a value.
+Type 'exit' to exit this prompt
+>>> exit
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\dojo_ninjas_proj>python manage.py makemigrations
+It is impossible to add a non-nullable field 'desc' to dojos without specifying a default. This is because the database needs something to populate existing rows.
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit and manually define a default value in models.py.
+Select an option: 1)
+Please select a valid option: 1
+Please enter the default value as valid Python.
+The datetime and django.utils.timezone modules are available, so it is possible to provide e.g. timezone.now as a value.
+Type 'exit' to exit this prompt
+>>> 12
+Migrations for 'dojo_ninjas_app':
+  dojo_ninjas_app\migrations\0002_dojos_desc.py
+    - Add field desc to dojos
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\dojo_ninjas_proj>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninjas_app, sessions
+Running migrations:
+  Applying dojo_ninjas_app.0002_dojos_desc... OK
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\dojo_ninjas_proj>python manage.py shell
+Python 3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.193764 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from dojo_ninjas_app.models import dojos
+>>> dojos.objects.create(name='Balqees',city='Hebron',state='Palestine',desc="old dojo")
+<dojos: dojos object (7)>
+>>>
