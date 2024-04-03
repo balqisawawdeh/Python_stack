@@ -37,19 +37,19 @@
                 {%csrf_token%}
                 <div class="user">
                     <label>First Name</label>
-                    <input type="text" name="text" value="{{user.f_name}}">
+                    <input type="text" name="firstname" placeholder="firstname">
                     <label>Last Name</label>
-                    <input type="text" name="text" value="">
+                    <input type="text" name="lastname" placeholder="lastname">
                 </div>
                 <div class="user">
                     <label>Email</label>
-                    <input type="text" name="text" value="">
+                    <input type="text" name="email" placeholder="email">
                     <label>Age</label>
-                    <input type="text" name="text" value="">
+                    <input type="text" name="age" placeholder="age">
                 </div> 
-                <a href="/create"><button role="button" type="submit" name="" value="">Add</button></a>
-                <a href="/remove"><button role="button" type="submit" name="" value="">remove</button></a>
+                <input type="submit" value="add user">
             </form>
+            <a href="/remove"><button role="button" type="submit" name="" value="">remove</button></a>
         </div>
     </div>
 </body>

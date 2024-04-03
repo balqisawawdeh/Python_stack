@@ -9,9 +9,8 @@ def index(request):
     return render(request,'index.html',context)
 
 def create(request):
-    models.create_user()
-    return render(request,'index.html')
-    
+    models.create_user(request)
+    return redirect('/')
 
 def remove(request):
     models.remove_user(id=id)

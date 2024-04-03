@@ -8,8 +8,8 @@ class users(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-def create_user():
-    users.objects.create(f_name="name",l_name="Anagonye",email_address="chidi@angonye.com",age=32)
+def create_user(request):
+    users.objects.create(f_name=request.POST['firstname'],l_name=request.POST['lastname'],email_address=request.POST['email'],age=request.POST['age'])
 
 def get_all():
     return users.objects.all()
