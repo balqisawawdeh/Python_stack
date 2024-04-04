@@ -56,7 +56,7 @@
                         <select name="FRdojo" class="form-control col-md-16" placeholder="Dojo">
                         <option selected>Choose...</option>
                         {%for dojo in Alldojos%}
-                        <option>{{dojo.Name}}</option>
+                        <option>{{dojo.id}}</option>
                         {%endfor%}
                         </select>
                     </div>
@@ -72,7 +72,7 @@
       <div class="display">
             <ul>
                 {% for dojo in Alldojos %}
-                <li>{{dojo.Name}}
+                <li>{{dojo.id}}
                     <ul>
                     {% for ninja in dojo.Ninjas.all %}	
                         <li><em>{{ninja.fname}} {{ninja.lname}}</em></li>
