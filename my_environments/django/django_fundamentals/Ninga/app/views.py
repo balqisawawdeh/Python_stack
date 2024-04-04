@@ -30,7 +30,8 @@ def process(request):
             if request.session['gold']>0:
                 request.session['activities'].append(f'Entered a casino and win {earn} golds...({datetime.datetime.now()})')
             else:
-                request.session['activities'].append(f'Entered a casino and lost {earn} golds... ouch.. ({datetime.datetime.now()})')
+                request.session['activities'].append(f'class="red" Entered a casino and lost {earn} golds... ouch.. ({datetime.datetime.now()})')
+                
         return redirect('/')
 
 def destroy(request):

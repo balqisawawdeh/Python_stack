@@ -4,8 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    hi
+    <div class="container">
+        <!-- Dojo Form -->
+        <form class="main" method="post" action="/add">
+            {%csrf_token%}
+            <div class="row">
+                <!-- Dojo input fields -->
+                <div class="col col-md-20">
+                    <h1>Add Dojo</h1>
+                    <div>
+                        <label for="inputname">Name</label>
+                        <input type="text" class="form-control col-md-16" name="Name" placeholder="name">
+                    </div>
+                    <div>
+                        <label for="inputcity">City</label>
+                        <input type="text" class="form-control col-md-16" name="city" placeholder="city">
+                    </div>
+                    <div>
+                        <label for="inputstate">State</label>
+                        <input type="text" class="form-control col-md-16" name="state" placeholder="state">
+                    </div>
+                    <div>
+                        <a href="/add"><button type="submit" class="btn btn-primary">Add</button></a>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <form class="main" method="post" action="/addninja">
+            {%csrf_token%}
+            <div class="row">
+                <!-- Ninja input fields -->
+                <div class="col col-md-20">
+                    <h1>Add Ninja</h1>
+                    <div>
+                        <label for="inputfname">First name</label>
+                        <input type="text" class="form-control col-md-16" name="fname" placeholder="First name">
+                    </div>
+                    <div>
+                        <label for="inputlname">Last name</label>
+                        <input type="text" class="form-control col-md-16" name="lname" placeholder="Last name">
+                    </div>
+                    <div">
+                        <label for="inputdojo">Dojo</label>
+                        <select name="FRdojo" class="form-control col-md-16" placeholder="Dojo">
+                        <option selected>Choose...</option>
+                        {%for dojo in Alldojos%}
+                        <option>{{dojo.Name}}</option>
+                        {%endfor%}
+                        </select>
+                    </div>
+                    
+                </div>
+                <div>
+                    <a href="/addninja"><button type="submit" class="btn btn-primary">Add</button></a>
+                </div>
+            </div>  
+        </form>
+      <hr class="hr hr-blurry" />
+      <h1>All The Dojos</h1>
+      <div class="display">
+            <ul>
+                {% for dojo in Alldojos %}
+                <li>{{dojo.Name}}
+                    <ul>
+                    {% for ninja in dojo.Ninjas.all %}	
+                        <li><em>{{ninja.fname}} {{ninja.lname}}</em></li>
+                    {% endfor %}
+                    </ul>
+                </li>
+                {%endfor%}
+            </ul>
+      </div>
+    </div>
 </body>
 </html>

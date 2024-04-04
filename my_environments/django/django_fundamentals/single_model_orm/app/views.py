@@ -10,6 +10,7 @@ def index(request):
 
 def create(request):
     models.create_user(request)
+    
     return redirect('/')
 
 def remove(request):

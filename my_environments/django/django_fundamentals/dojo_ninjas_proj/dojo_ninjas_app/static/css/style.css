@@ -1,0 +1,22 @@
+.container{
+    width: 100%;
+    justify-content:center;
+    text-align: left;
+}
+.main{
+    width: 40%;
+    margin: 50px 0px 50px 0px;
+    justify-content:center;
+    display:inline-flex;
+}
+.display{
+    justify-content:center;
+    display: flex;
+}
+hr{
+    margin: 20px 0px 20px 0px;
+}
+
+h1{
+    text-align: center;
+}
