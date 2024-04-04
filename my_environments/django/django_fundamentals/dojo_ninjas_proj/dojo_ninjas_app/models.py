@@ -27,8 +27,8 @@ def get_dojo():
     return dojos.objects.all()
 
 #create new Ninja
-def create_Ninja(request):
-    ninjas.objects.create(fname=request.POST['fname'],lname=request.POST['lname'],dojo=dojos.objects.get(id=2))
+def create_Ninja(request,id):
+    ninjas.objects.create(fname=request.POST['fname'],lname=request.POST['lname'],dojo=dojos.objects.get(id=id))
 
 #get all Ninjas   
 def get_ninja():
