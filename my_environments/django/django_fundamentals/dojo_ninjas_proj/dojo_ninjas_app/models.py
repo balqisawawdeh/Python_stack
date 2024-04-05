@@ -19,16 +19,19 @@ class ninjas(models.Model):
 
 #create new dojo
 def create_dojo(request):
-    dojos.objects.create(Name=request.POST['Name'],city=request.POST['city'],state=request.POST['state'])
-    print(request.POST)
+    dojos.objects.create(Name=request.POST.get('Name'),city=request.POST.get('city'),state=request.POST.get('state'))
 
 #get all dojos   
 def get_dojo():
     return dojos.objects.all()
 
 #create new Ninja
-def create_Ninja(request,id):
-    ninjas.objects.create(fname=request.POST['fname'],lname=request.POST['lname'],dojo=dojos.objects.get(id=id))
+def addninjas(request):
+    if request.method=="POST":
+        fname=request.POST['fname']
+        lname=request.POST['lname']
+        dojo=dojos.objects.get(id=request.POST['FRdojo'])
+        ninjas.objects.create(f_name=fname,l_name=lname,dojo=dojo)
 
 #get all Ninjas   
 def get_ninja():

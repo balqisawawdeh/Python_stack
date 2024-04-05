@@ -21,15 +21,15 @@
                     <h1>Add Dojo</h1>
                     <div>
                         <label for="inputname">Name</label>
-                        <input type="text" class="form-control col-md-16" name="Name" placeholder="name">
+                        <input type="text" class="form-control col-md-16" id="Name" name="Name" placeholder="name">
                     </div>
                     <div>
                         <label for="inputcity">City</label>
-                        <input type="text" class="form-control col-md-16" name="city" placeholder="city">
+                        <input type="text" class="form-control col-md-16" id="city" name="city" placeholder="city">
                     </div>
                     <div>
                         <label for="inputstate">State</label>
-                        <input type="text" class="form-control col-md-16" name="state" placeholder="state">
+                        <input type="text" class="form-control col-md-16" id="state" name="state" placeholder="state">
                     </div>
                     <div>
                         <a href="/add"><button type="submit" class="btn btn-primary">Add</button></a>
@@ -56,7 +56,7 @@
                         <select name="FRdojo" class="form-control col-md-16" placeholder="Dojo">
                         <option selected>Choose...</option>
                         {%for dojo in Alldojos%}
-                        <option>{{dojo.id}}</option>
+                        <option value="{{dojo.id}}">{{dojo.Name}}</option>
                         {%endfor%}
                         </select>
                     </div>
@@ -72,10 +72,10 @@
       <div class="display">
             <ul>
                 {% for dojo in Alldojos %}
-                <li>{{dojo.id}}
+                <li>{{dojo.Name}}
                     <ul>
                     {% for ninja in dojo.Ninjas.all %}	
-                        <li><em>{{ninja.fname}} {{ninja.lname}}</em></li>
+                        <li><em>{{ninja.f_name}} {{ninja.l_name}}</em></li>
                     {% endfor %}
                     </ul>
                 </li>

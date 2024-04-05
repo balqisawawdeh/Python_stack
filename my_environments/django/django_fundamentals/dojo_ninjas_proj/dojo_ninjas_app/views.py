@@ -21,8 +21,8 @@ def getalldojo(request):
     return render(request,"index.html",context)
 
 #create new ninja
-def create_ninja(request):
-    models.create_dojo(request)
+def addninjas(request):
+    models.addninjas(request)
     return redirect('/')
 
 #get all Ninjas   

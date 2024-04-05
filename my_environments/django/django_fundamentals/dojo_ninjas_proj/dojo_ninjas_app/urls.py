@@ -3,7 +3,7 @@ from . import views
 urlpatterns = [ 
     path('', views.index),
     path('add',views.create_dojo),
-    path('addninja',views.create_ninja),   
+    path('addninja',views.addninjas),   
     path('displayalldojos',views.getalldojo),
     path('displayallninjas',views.getallninjas)
 ]
