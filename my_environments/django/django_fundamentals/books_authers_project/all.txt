@@ -1,0 +1,271 @@
+Microsoft Windows [Version 10.0.22631.3296]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals>call envo2024\Scripts\activate
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals>django-admin startproject books_authers_project
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals>cd books_authers_project
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\books_authers_project>code.
+'code.' is not recognized as an internal or external command,
+operable program or batch file.
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\books_authers_project>code .
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\books_authers_project>python manage.py startappapp
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\books_authers_project>python manage.py runse
+rver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+April 10, 2024 - 10:00:56
+Django version 5.0.3, using settings 'books_authers_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+[10/Apr/2024 10:01:01] "GET / HTTP/1.1" 200 207
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\books_authers_project>python manage.py shell
+
+Python 3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>>
+KeyboardInterrupt
+>>> exit()
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\books_authers_project>python manage.py makemigrations
+Migrations for 'app':
+  app\migrations\0001_initial.py
+    - Create model Book
+    - Create model Auther
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\books_authers_project>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, app, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying app.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying sessions.0001_initial... OK
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\books_authers_project>python manage.py shell
+
+Python 3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from app.models import *
+>>> Book.objects.create(title="C sharp",description="some desc")
+<Book: Book object (1)>
+>>> Book.objects.create(title="Java",description="some desc")
+<Book: Book object (2)>
+>>> Book.objects.create(title="Python",description="some desc")
+<Book: Book object (3)>
+>>> Book.objects.create(title="PHP",description="some desc")
+<Book: Book object (4)>
+>>> k: Book object (5)>
+<Boo
+>>> Auther.objects.create(first_name="Jane",last_name="Austen")
+<Auther: Auther object (1)>
+>>> Auther.objects.create(first_name="Emily",last_name="Dickinson")
+<Auther: Auther object (2)>
+>>> Auther.objects.create(first_name="Fyodor",last_name="Dostoevsky")
+<Auther: Auther object (3)>
+>>> Auther.objects.create(first_name="William",last_name="Shakespeare")
+<Auther: Auther object (4)>
+>>> Auther.objects.create(first_name="Lau",last_name="Tzu")
+<Auther: Auther object (5)>
+>>> exit()
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\books_authers_project>python manage.py makemigrations
+It is impossible to add a non-nullable field 'notes' to auther without specifying a default. This is because the database needs something to populate existing rows.
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit and manually define a default value in models.py.
+Select an option: 1
+Please enter the default value as valid Python.
+The datetime and django.utils.timezone modules are available, so it is possible to provide e.g. timezone.now as a value.
+Type 'exit' to exit this prompt
+>>> exit()
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\books_authers_project>python manage.py makemigrations
+It is impossible to add a non-nullable field 'notes' to auther without specifying a default. This is because the database needs something to populate existing rows.
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit and manually define a default value in models.py.
+Select an option: 2
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\books_authers_project>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, app, auth, contenttypes, sessions
+Running migrations:
+  No migrations to apply.
+  Your models in app(s): 'app' have changes that are not yet reflected in a migration, and so won't be applied.
+  Run 'manage.py makemigrations' to make new migrations, and then re-run 'manage.py migrate' to apply them.
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\books_authers_project>
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\books_authers_project>python manage.py makemigrations
+It is impossible to add a non-nullable field 'notes' to auther without specifying a default. This is because the database needs something to populate existing rows.
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit and manually define a default value in models.py.
+Select an option: 1)
+Please select a valid option: 1
+Please enter the default value as valid Python.
+The datetime and django.utils.timezone modules are available, so it is possible to provide e.g. timezone.now as a value.
+Type 'exit' to exit this prompt
+>>> timezone.now
+Migrations for 'app':
+  app\migrations\0002_auther_notes.py
+    - Add field notes to auther
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\books_authers_project>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, app, auth, contenttypes, sessions
+Running migrations:
+  Applying app.0002_auther_notes... OK
+
+(envo2024) C:\Users\balqi\Documents\MyAxsos\Python_stack\my_environments\django\django_fundamentals\books_authers_project>python manage.py shell
+Python 3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> book_to_update=Book.objects.get(id=1)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Book' is not defined. Did you mean: 'bool'?
+>>> from app.models import *
+>>> book_to_update=Book.objects.get(id=1)
+>>> book_to_update.title='C#'
+>>> book_to_update.save()
+>>> auther_to_update=Auther.objects.get(id=4)
+>>> auther_to_update.first_name="Bill"
+>>> auther_to_update.save()
+>>> auther_to_update=Auther.objects.get(id=1)
+>>> this_book=Book.objects.get(id=1)
+>>> this_book.authers.add(auther_to_update)
+>>> auther_to_update=Auther.objects.get(id=1)
+>>> this_book=Book.objects.get(id=2)
+>>> this_book.authers.add(auther_to_update)
+>>> auther_to_update=Auther.objects.get(id=2)
+>>> this_book=Book.objects.get(id=1)
+>>> this_book.authers.add(auther_to_update)
+>>> this_book=Book.objects.get(id=2)
+>>> this_book.authers.add(auther_to_update)
+>>> this_book=Book.objects.get(id=3)
+>>> this_book.authers.add(auther_to_update)
+>>> this_book=Book.objects.get(id=4)
+>>> this_book.authers.add(auther_to_update)
+>>> auther_to_update=Auther.objects.get(id=3)
+>>> this_book=Book.objects.get(id=1)
+>>> this_book.authers.add(auther_to_update)
+>>> this_book=Book.objects.get(id=2)
+>>> this_book.authers.add(auther_to_update)
+>>> this_book=Book.objects.get(id=3)
+>>> this_book.authers.add(auther_to_update)
+>>> this_book=Book.objects.get(id=4)
+>>> this_book.authers.add(auther_to_update)
+>>> this_book=Book.objects.all()
+>>> auther_to_update=Auther.objects.get(id=4)
+>>> this_book.authers.add(auther_to_update)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'authers'
+>>> this_book=Book.objects.get(id=1)
+>>> this_book.authers.add(auther_to_update)
+>>> this_book=Book.objects.get(id=2)
+>>> this_book.authers.add(auther_to_update)
+>>> this_book=Book.objects.get(id=3)
+>>> this_book.authers.add(auther_to_update)
+>>> this_book=Book.objects.get(id=4)
+>>> this_book.authers.add(auther_to_update)
+>>> this_book=Book.objects.get(id=5)
+>>> this_book.authers.add(auther_to_update)
+>>> this_book=Book.objects.get(id=3)
+>>> this_book.authers.all()
+<QuerySet [<Auther: Auther object (2)>, <Auther: Auther object (3)>, <Auther: Auther object (4)>]>
+>>> this_book=Book.objects.get(id=3)
+>>> this_auther=Auther.objects.first()
+>>> this_book.authers.remove(this_auther)
+>>> this_book.authers.all()
+<QuerySet [<Auther: Auther object (2)>, <Auther: Auther object (3)>, <Auther: Auther object (4)>]>
+>>> this_auther=Auther.objects.get(id=5)
+>>> this_book.authers.remove(this_auther)
+>>> this_book.authers.all()
+<QuerySet [<Auther: Auther object (2)>, <Auther: Auther object (3)>, <Auther: Auther object (4)>]>
+>>> this_book=Book.objects.get(id=3)
+>>> this_auther=Auther.objects.get(id=5)
+>>> this_book.authers.remove(this_auther)
+>>> this_book.authers.all()
+<QuerySet [<Auther: Auther object (2)>, <Auther: Auther object (3)>, <Auther: Auther object (4)>]>
+>>> this_book=Book.objects.get(id=3)
+>>> this_book.authers.all()
+<QuerySet [<Auther: Auther object (2)>, <Auther: Auther object (3)>, <Auther: Auther object (4)>]>
+>>> this_auther=Auther.objects.get(id=2)
+>>> this_book.authers.remove(this_auther)
+>>> this_book.authers.all()
+<QuerySet [<Auther: Auther object (3)>, <Auther: Auther object (4)>]>
+>>> this_book=Book.objects.get(id=2)
+>>> this_auther=Auther.objects.get(id=5)
+>>> this_book.authers.add(this_auther)
+>>> this_auther=Auther.objects.get(id=3)
+>>> this_auther.book.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Auther' object has no attribute 'book'. Did you mean: 'books'?
+>>> this_auther.authers.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Auther' object has no attribute 'authers'
+>>> this_book.authers.all()
+<QuerySet [<Auther: Auther object (1)>, <Auther: Auther object (2)>, <Auther: Auther object (3)>, <Auther: Auther object (4)>, <Auther: Auther object (5)>]>
+>>> this_auther=Auther.objects.get(id=3)
+>>> this_auther.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Auther' object has no attribute 'all'
+>>> this_auther=Auther.objects.get(id=3)
+>>> this_book=Book.objects.all()
+>>> this_book.authers.get(this_auther)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'authers'
+>>> this_book.authers.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'authers'
+>>> this_book.authers.all(this_auther)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'QuerySet' object has no attribute 'authers'
+>>> this_auther.authers.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Auther' object has no attribute 'authers'
+>>> this_auther.books.all()
+<QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>, <Book: Book object (4)>]>
+>>> this_book=Book.objects.get(id=5)
+>>> this_auther=Auther.objects.all()
+>>> this_book.authers.all()
+<QuerySet [<Auther: Auther object (4)>]>
+>>>

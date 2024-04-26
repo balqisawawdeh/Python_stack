@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%load static%}
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+   
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="/books">Books</a></li>
+        <li><a href="/authers">Authers</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-4 sidenav">
+        <h1>Add Book</h1>
+        <form class="form" action="/create" method='post'>
+            {%csrf_token%}
+            <div class="book">
+                <label>Title</label>
+                <input type="text" name="title" placeholder="Title">
+                <label>Description</label>
+                <input type="text" name="description" placeholder="Description">
+            </div>
+            <input type="submit" value="add Book">
+        </form>
+        <a href="/remove"><button role="button" type="submit" name="" value="">remove</button></a> 
+    </div>
+    <div class="col-sm-6 text-left"> 
+        <h1>List of Authers</h1>
+        <div>
+          <h2>{{ thisAuther.first_name }} {{ thisAuther.last_name }}</h2>
+          <p>ID: {{ thisAuther.id }}</p>
+          <p>Notes: {{ thisAuther.notes }}</p>
+          <p>Books:</p>
+          <ul>
+              {% for book in assoc_books %}
+              <li>{{ book.title }}</li>
+              {% endfor %}
+          </ul>
+          <form action='/add_book_to_auth/{{ thisAuther.id }}' method='post'>
+              {% csrf_token %}
+              <select name="book_id">
+                  {% for book in non_assoc_books %}
+                  <option value="{{ book.id }}">{{ book.title }}</option>
+                  {% endfor %}
+              </select>
+              <input type="submit" value="Add">
+          </form>
+          
+      </div>
+      <a href="/authors">Back</a>
+    </div>
+    
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
+
+</body>
+</html>
